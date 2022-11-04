@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div data-theme="winter" className='max-w-screen-xl mx-auto'>
-      <RouterProvider router={router}>
+      <RouterProvider router={router}>//tyytyty
 
       </RouterProvider>
     </div>
