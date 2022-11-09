@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 
-const OrderRow = ({ order }) => {
-    const { serviceName, price, email, customer, phone, service } = order;
+const OrderRow = ({ order, handleDelete }) => {
+    const { _id, serviceName, price, customer, phone, service } = order;
     const [orderService, setOrderservice] = useState({});// Empty Array
 
     useEffect(() => {
@@ -11,17 +11,19 @@ const OrderRow = ({ order }) => {
             .then(data => setOrderservice(data));
     }, [service])
 
+
+
     return (
         <tr>
             <th>
                 <label>
-                    <input type="checkbox" className="checkbox" />
+                    <button onClick={() => handleDelete(_id)} className='btn-btn-ghost'>X</button>
                 </label>
             </th>
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
+                        <div className="rounded w-24 h-24">
 
                             {orderService?.img &&
                                 <img src={orderService.img} alt="Avatar Tailwind CSS Component" />// jodi orderservice er vitore image thake tahole img Dhekabe
